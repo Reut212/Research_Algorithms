@@ -3,6 +3,15 @@ import doctest
 import networkx as nx
 
 
+def print_path(parent, start, end):
+    requested_path = [end]
+    while parent[end] != start:
+        requested_path.append(parent[end])
+        end = parent[end]
+    requested_path.append(start)
+    print('Your path is: ' + str(reversed(requested_path)))
+    return requested_path[::-1]
+
 
 def breadth_first_search(start, end, neighbor_function):
     # initialize queue parent and visited
