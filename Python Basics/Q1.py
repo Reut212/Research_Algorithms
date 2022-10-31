@@ -1,5 +1,4 @@
 # First Question: Safe Call
-
 def f(x: int, y: float, z):
     return x + y + z
 
@@ -16,13 +15,6 @@ def safe_call(func, x: int, y: float, z: any):
     else:
         sum_xyz = func(x, y, z)
         print('Sum of x, y and z is: ' + str(sum_xyz))
-
-
-# Second Question: Breadth First Search
-
-def four_neighbor_function(node: any) -> list:
-    (x, y) = node
-    return [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
 
 
 # Press the green button in the gutter to run the script.
