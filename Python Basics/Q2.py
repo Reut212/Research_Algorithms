@@ -22,7 +22,6 @@ def reverse(requested_path):
     return new_lst
 
 
-
 def breadth_first_search(start, end, neighbor_function):
     # initialize queue parent and visited
     # push the first vertex into the queue
@@ -58,7 +57,7 @@ def breadth_first_search(start, end, neighbor_function):
 
 
 # [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
-# requested_path = [(0,0), (0,1), (1,1), (2,1), (2,2)]
+# requested_path = [(0, 0), (1, 0), (2, 0), (2, 1), (2, 2)]
 # [(0,0) : [(1,0), (-1,0), (0,1), (0,-1)]
 # [(0,1) : [(1,1), (-1,1), (0,2), (0,0)]
 # [(0,2) : [(1,2), (-1,2), (0,3), (0,1)]
@@ -82,4 +81,4 @@ if __name__ == '__main__':
     g1.add_edge(1, 3)
     g1.add_edge(2, 3)
     print(breadth_first_search(1, 3, g1.neighbors))
-    # print(breadth_first_search(start=(0, 0), end=(2, 2), neighbor_function=four_neighbor_function))
+    print(breadth_first_search(start=(0, 0), end=(2, 2), neighbor_function=four_neighbor_function))
