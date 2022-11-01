@@ -44,17 +44,20 @@ class MyTestCase(unittest.TestCase):
                  'student3': ('suma', 11), 'student2': ('ravi', 11),
                  'student5': ('gayatri', 9)}
         self.assertEqual(print_sorted(list2),
-                         [('student1', [10, 'bhanu']), ('student2', [11, 'ravi']),
-                          ('student3', [11, 'suma']), ('student4', [12, 'uma']), ('student5', [9, 'gayatri'])])
+                         [('student1', (10, 'bhanu')), ('student2', (11, 'ravi')), ('student3', (11, 'suma')),
+                          ('student4', (12, 'uma')), ('student5', (9, 'gayatri'))])
         self.assertNotEqual(print_sorted(list2),
-                            [('atudent1', [10, 'bhanu']), ('student2', [11, 'ravi']),
-                             ('student3', [11, 'suma']), ('student4', [12, 'uma']), ('student5', [9, 'gayatri'])])
+                            [('student2', (10, 'bhanu')), ('student2', (11, 'ravi')), ('student3', (11, 'suma')),
+                             ('student4', (12, 'uma')), ('student5', (9, 'gayatri'))])
         list3 = [1, [1, 2, 3], 2, 0, 12]
         self.assertEqual(print_sorted(list3), [0, 1, 12, 2, [1, 2, 3]])
-        self.assertNotEqual(print_sorted(list1), [12, 1, 12, 2, [1, 2, 3]])
+        self.assertNotEqual(print_sorted(list3), [12, 1, 12, 2, [1, 2, 3]])
+        list4 = {5: 5, 'c': 6, 'b': [1, 3, 2, 4]}
+        self.assertEqual(print_sorted(list4), [('b', [1, 2, 3, 4]), ('c', 6), (5, 5)])
+        self.assertNotEqual(print_sorted(list4), [('b', 5), ('b', [1, 2, 3, 4]), ('c', 6)])
         set01 = {'Apples', ('Bananas', 'Oranges')}
-        self.assertEqual(print_sorted(set01), {'Apples', ('Bananas', 'Oranges')})
-        self.assertNotEqual(print_sorted(list1), {})
+        self.assertEqual(print_sorted(set01), {('Bananas', 'Oranges'), 'Apples'})
+        self.assertNotEqual(print_sorted(set01), {})
         print()
 
 

@@ -10,19 +10,22 @@ def sort_input(listInput):
     # type of dictionary
     elif type(listInput) is dict:
         print('The type is: ' + str(type(listInput)))
-        return sorted({key: sort_input(val) for key, val in listInput.items()}.items())
+        return sorted({key: sort_input(val) for key, val in listInput.items()}.items(), key=str)
     # type of set
     elif type(listInput) is set:
         print('The type is: ' + str(type(listInput)))
+        # replace to str
         return set(sorted(listInput, key=lambda inp: str(inp)))
     # type of list
     elif type(listInput) is list:
         print('The type is: ' + str(type(listInput)))
+        # replace to str
         return sorted([sort_input(val) for val in listInput], key=str)
     # type of tuple
     elif type(listInput) is tuple:
         print('The type is: ' + str(type(listInput)))
-        return sorted((sort_input(item) for item in listInput), key=str)
+        # replace to str
+        return tuple(sorted((sort_input(item) for item in listInput), key=str))
 
 
 def print_sorted(lst: Iterable):
@@ -41,7 +44,10 @@ if __name__ == '__main__':
           ' ''student2'': (''ravi'', 11), ''student5'': (''gayatri'', 9)} the answer is: ' + str(print_sorted(lst2)))
     print()
     lst3 = [1, [1, 2, 3], 2, 0, 12]
-    print('For lst3 = [1, [1, 2, 3], 2, 0, 12] the answer is: ' + str(print_sorted(lst3)))
+    print('For lst3 = [1, [1, 2, 3], 2, 0, 12] ' + str(print_sorted(lst3)))
+    lst4 = {5: 5, 'c': 6, 'b': [1, 3, 2, 4]}
+    print('For lst4 = {(5): 5, (4): 6, (4): [1, 3, 2, 4]} the answer is: '
+          + str(print_sorted(lst4)))
     print()
     set1 = {'Apples', ('Bananas', 'Oranges')}
     print('For set1 = {''Apples'', (''Bananas'', ''Oranges'')} the answer is: : ' + str(print_sorted(set1)))
