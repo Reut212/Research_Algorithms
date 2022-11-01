@@ -1,28 +1,47 @@
-# First Question: Deep sort
-def print_sorted(inputX):
-    print()
-    print('The type is: ' + str(type(inputX)))
-    if type(inputX) is dict:
-        print('The type is: ' + str(type(inputX)))
-        for i in sorted(inputX.items()):
-            print(i, end=" ")
-    # elif type(inputX) is tuple:
-    #     sorted_tup = tuple(sorted(inputX))
-    #     print('The type is: ' + str(type(inputX)))
-    #     print(sorted_tup)
+# Third Question: Deep sort
+from collections.abc import Iterable as Iterable
+
+
+def sort_input(listInput):
+    # go over depth of different data structures
+    # type of str or end of iteration
+    if isinstance(listInput, str) or not isinstance(listInput, Iterable):
+        return listInput
+    # type of dictionary
+    elif type(listInput) is dict:
+        print('The type is: ' + str(type(listInput)))
+        return sorted({key: sort_input(val) for key, val in listInput.items()}.items())
+    # type of set
+    elif type(listInput) is set:
+        print('The type is: ' + str(type(listInput)))
+        return set(sorted(listInput, key=lambda inp: str(inp)))
+    # type of list
+    elif type(listInput) is list:
+        print('The type is: ' + str(type(listInput)))
+        return sorted([sort_input(val) for val in listInput], key=str)
+    # type of tuple
+    elif type(listInput) is tuple:
+        print('The type is: ' + str(type(listInput)))
+        return sorted((sort_input(item) for item in listInput), key=str)
+
+
+def print_sorted(lst: Iterable):
+    return sort_input(lst)
 
 
 if __name__ == '__main__':
-    x = {"a": 5, "c": 6, "b": [1, 3, 2, 4]}
-    print_sorted(x)  # prints e.g. {"a":5, "b":[1,2,3,4], "c":6}
-    # print()
-    # y = {'student1': ('bhanu', 10), 'student4': ('uma', 12),
-    #         'student3': ('suma', 11), 'student2': ('ravi', 11),
-    #         'student5': ('gayatri', 9)}
-    # print_sorted(y)
-    # print()
-    # z = {('bhanu', 10): 'student1',
-    #     ('uma', 12): 'student4',
-    #     ('suma', 11): 'student3',
-    #     ('ravi', 11): 'student2',
-    #     ('gayatri', 9): 'student5'}
+    lst1 = {"a": 5, "c": 6, "b": [1, 3, 2, 4]}
+    print_sorted(lst1)  # prints e.g. {"a":5, "b":[1,2,3,4], "c":6}
+    print('For lst1 = {"a": 5, "c": 6, "b": [1, 3, 2, 4]} the answer is: ' + str(print_sorted(lst1)))
+    print()
+    lst2 = {'student1': ('bhanu', 10), 'student4': ('uma', 12),
+            'student3': ('suma', 11), 'student2': ('ravi', 11),
+            'student5': ('gayatri', 9)}
+    print('For lst2 = {''student1'': (''bhanu'', 10), ''student4'': (''uma'', 12), ''student3'': (''suma'', 11),'
+          ' ''student2'': (''ravi'', 11), ''student5'': (''gayatri'', 9)} the answer is: ' + str(print_sorted(lst2)))
+    print()
+    lst3 = [1, [1, 2, 3], 2, 0, 12]
+    print('For lst3 = [1, [1, 2, 3], 2, 0, 12] the answer is: ' + str(print_sorted(lst3)))
+    print()
+    set1 = {'Apples', ('Bananas', 'Oranges')}
+    print('For set1 = {''Apples'', (''Bananas'', ''Oranges'')} the answer is: : ' + str(print_sorted(set1)))
