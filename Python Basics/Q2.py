@@ -1,5 +1,4 @@
-# graph is in adjacent list representation
-import doctest
+# First Question: Breadth First Search
 import networkx as nx
 
 
