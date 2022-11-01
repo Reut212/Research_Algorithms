@@ -76,7 +76,7 @@ def four_neighbor_function(node: any) -> list:  # [(0,1) , (-1,0), (0,1), (0,-1)
     return [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
 
 
-def main():
+if __name__ == '__main__':
     g1 = nx.Graph()
     g1.add_nodes_from(range(1, 4))
     g1.add_edge(1, 2)
@@ -84,7 +84,3 @@ def main():
     g1.add_edge(2, 3)
     print(breadth_first_search(1, 3, g1.neighbors))
     # print(breadth_first_search(start=(0, 0), end=(2, 2), neighbor_function=four_neighbor_function))
-
-
-if __name__ == '__main__':
-    main()
