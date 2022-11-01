@@ -15,6 +15,7 @@ def safe_call(func, x: int, y: float, z: any):
     else:
         sum_xyz = func(x, y, z)
         print('Sum of x, y and z is: ' + str(sum_xyz))
+        return sum_xyz
 
 
 # Press the green button in the gutter to run the script.
