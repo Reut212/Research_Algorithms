@@ -6,7 +6,6 @@ def print_sorted(inputX):
         print('The type is: ' + str(type(inputX)))
         for i in sorted(inputX.items()):
             print(i, end=" ")
-            del inputX[i]
     # elif type(inputX) is tuple:
     #     sorted_tup = tuple(sorted(inputX))
     #     print('The type is: ' + str(type(inputX)))
