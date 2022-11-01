@@ -14,6 +14,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(safe_call(f, 5, 7.0, 3), 15.0)
         self.assertFalse(safe_call(f, "abc", 2.1, 3))
         self.assertFalse(safe_call(f, " ", " ", 3))
+        self.assertFalse(safe_call(f, "two", 3, 5, 6, a=1, b=2))
+        self.assertEqual(safe_call(f, a=1, b=2), 3)
+        self.assertFalse(safe_call(f,))
+        self.assertFalse(safe_call(f, 'a'))
         print()
 
     def test_q2(self):
