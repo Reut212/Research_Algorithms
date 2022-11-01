@@ -28,5 +28,3 @@ if __name__ == '__main__':
     safe_call(f, 5, 7.0, 3)
     safe_call(f, "abc", 2.1, 3)
     safe_call(f, " ", " ", 3)
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
