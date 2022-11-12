@@ -3,8 +3,9 @@ from Q2 import *
 
 
 class MyTestCase(unittest.TestCase):
+    print(' -------------------------------- Q2 tests -------------------------------- ')
+
     def test_q2(self):
-        print(' -------------------------------- Q2 tests -------------------------------- ')
         self.assertEqual(power(x=2), 4)
         self.assertNotEqual(power(x=2), 5)
         self.assertEqual(power(), "Please insert a valid parameters")
