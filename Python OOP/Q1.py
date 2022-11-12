@@ -20,7 +20,7 @@ def open_a_text_file(txtFileName):
     """
     Receive txt file name from user and looking for a valid and invalid email addresses according to known pattern (
     regex).
-    There is an implementation for inserting a txt file and this function also check if the file is a txt file.
+    There is an implementation for inserting a txt file and this function also check if the received file is a txt file.
     I marked it as notes.
     """
 
