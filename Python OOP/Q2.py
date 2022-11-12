@@ -1,3 +1,6 @@
+import doctest
+
+
 # defining decorator function
 def lastcall(func, _saveData={}):
     _saveData[func] = []
@@ -21,6 +24,7 @@ def lastcall(func, _saveData={}):
                 return "Please insert a valid parameters"
         except TypeError:
             return "Please insert a valid parameters"
+
     return wrapper_function
 
 
@@ -55,11 +59,12 @@ def power(x):
 
 
 if __name__ == '__main__':
-    power(x=2)
-    power()
-    power(2)
-    mul_dif(x=2.1, y=4)
-    mul_dif(2.1, 4)
-    sum_numbers(3, 4)
-    sum_numbers(2, 1)
-    sum_numbers(3, 4)
+    print(doctest.testmod())
+    # power(x=2)
+    # power()
+    # power(2)
+    # mul_dif(x=2.1, y=4)
+    # mul_dif(2.1, 4)
+    # sum_numbers(3, 4)
+    # sum_numbers(2, 1)
+    # sum_numbers(3, 4)
