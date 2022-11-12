@@ -21,7 +21,6 @@ def lastcall(func, _saveData={}):
                 print("Please insert a valid parameters")
         except TypeError:
             print("Please insert a valid parameters")
-
     return wrapper_function
 
 
