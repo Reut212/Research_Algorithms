@@ -8,19 +8,19 @@ def lastcall(func, _saveData={}):
             if len(kwargs.values()) != 0:
                 if tuple(kwargs.values()) not in _saveData[func]:
                     _saveData[func].append(tuple(kwargs.values()))
-                    print(val_func)
+                    return val_func
                 else:
                     print("I already told you that the answer is " + str(val_func) + "!")
             elif len(args) != 0:
                 if args not in _saveData[func]:
                     _saveData[func].append(args)
-                    print(val_func)
+                    return val_func
                 else:
-                    print("I already told you that the answer is " + str(val_func) + "!")
+                    return "I already told you that the answer is " + str(val_func) + "!"
             else:
-                print("Please insert a valid parameters")
+                return "Please insert a valid parameters"
         except TypeError:
-            print("Please insert a valid parameters")
+            return "Please insert a valid parameters"
     return wrapper_function
 
 
