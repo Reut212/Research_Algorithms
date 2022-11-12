@@ -5,13 +5,23 @@ def lastcall(func, _saveData={}):
     def wrapper_function(*args, **kwargs):
         try:
             val_func = func(*args, **kwargs)
-            if args in _saveData[func]:
-                print("I already told you that the answer is " + str(val_func) + "!")
+            if len(kwargs.values()) != 0:
+                if tuple(kwargs.values()) not in _saveData[func]:
+                    _saveData[func].append(tuple(kwargs.values()))
+                    print(val_func)
+                else:
+                    print("I already told you that the answer is " + str(val_func) + "!")
+            elif len(args) != 0:
+                if args not in _saveData[func]:
+                    _saveData[func].append(args)
+                    print(val_func)
+                else:
+                    print("I already told you that the answer is " + str(val_func) + "!")
             else:
-                _saveData[func].append(args)
-                print(str(val_func))
+                print("Please insert a valid parameters")
         except TypeError:
             print("Please insert a valid parameters")
+
     return wrapper_function
 
 
@@ -46,10 +56,11 @@ def power(x):
 
 
 if __name__ == '__main__':
-    power(2)
+    power(x=2)
     power()
     power(2)
-    # mul_dif(a=2.1, b=4)
+    mul_dif(x=2.1, y=4)
+    mul_dif(2.1, 4)
     sum_numbers(3, 4)
     sum_numbers(2, 1)
     sum_numbers(3, 4)
