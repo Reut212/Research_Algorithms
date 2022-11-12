@@ -10,7 +10,7 @@ def lastcall(func, _saveData={}):
                     _saveData[func].append(tuple(kwargs.values()))
                     return val_func
                 else:
-                    print("I already told you that the answer is " + str(val_func) + "!")
+                    return "I already told you that the answer is " + str(val_func) + "!"
             elif len(args) != 0:
                 if args not in _saveData[func]:
                     _saveData[func].append(args)
