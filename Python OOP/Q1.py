@@ -5,11 +5,13 @@ from time import sleep
 """
 This is an implementation for valid email addresses search.
 
-The example program supplies two function, open_a_text_file(txtFileName) and check(email). For example, 
->>> open_a_text_file("txt.txt") Valid Emails are:  ['abc-d@mail.com', 'abc.def@mail.com', 'abc@mail.com', 
+The program supplies two function, open_a_text_file(txtFileName) and check(email). For example, 
+>>> open_a_text_file("txt.txt")
+Valid Emails are:  ['abc-d@mail.com', 'abc.def@mail.com', 'abc@mail.com', 
 'abc_def@mail.com', 'abc.def@mail.cc', 'abc.def@mail-archive.com', 'abc.def@mail.org', 'abc.def@mail.com'] Invalid 
 Emails are:  ['abc-@mail.com', 'abc..def@mail.com', '.abc@mail.com', 'abc#def@mail.com', 'abc.def@mail.c', 
-'abc.def@mail#archive.com', 'abc.def@mail', 'abc.def@mail..com'] """
+'abc.def@mail#archive.com', 'abc.def@mail', 'abc.def@mail..com'] 
+"""
 
 regex = r'^[a-z0-9]+[\._-]?[a-z0-9]+[@][a-z0-9]+[\._-]?[a-z0-9]+[.]\w{2,}$'
 validEmails = []
