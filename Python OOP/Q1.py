@@ -1,21 +1,19 @@
 import re
+from time import sleep
 
-# regex = r'\b[A-Za-z0-9._%+-A-Za-z0-9]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 regex = r'^[a-z0-9]+[\._-]?[a-z0-9]+[@][a-z0-9]+[\._-]?[a-z0-9]+[.]\w{2,}$'
 validEmails = []
 invalidEmails = []
 
-# '^[a-z0-9]+[\._-]?[a-z0-9]+[@][a-z0-9]+[\._-]?[a-z0-9]+[.]\w{2,}$
-# regex = r'(?:\w|a-zA-Z0-9\.\-_\w)+@{1}[A-Za-z]+\.{1}[A-Z|a-z]{2,}$'
 
+def open_a_text_file(txtFileName):
+    # txtFileName = input("Please enter a txt file name: ")
+    # print()
 
-# ?:[A-Z0-9._%-]
+    # print("looking for " + str(txtFileName) + "...")
+    # print()
+    # sleep(0.5)
 
-def open_a_text_file():
-    txtFileName = input("Please enter a txt file name: ")
-    print()
-    print("looking for " + str(txtFileName) + "...")
-    print()
     try:
         with open(txtFileName) as tf:
             while True:
@@ -43,4 +41,4 @@ def check(email):
 
 
 if __name__ == '__main__':
-    open_a_text_file()
+    open_a_text_file("txt.txt")
