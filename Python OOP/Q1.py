@@ -16,21 +16,19 @@ def open_a_text_file():
     print()
     print("looking for " + str(txtFileName) + "...")
     print()
-    # try:
-
-    with open(txtFileName) as tf:
-        while True:
-            emailAddress = tf.readline()
-            if emailAddress.endswith('\n'):
-                emailAddress = emailAddress[:-1]
-            check(emailAddress)
-            if not emailAddress:
-                break
-
-    print("Valid Emails are: ", validEmails)
-    print("Invalid Emails are: ", invalidEmails[:-1])
-    # except ValueError:
-    #     print("There is no txt file exist under this name. ")
+    try:
+        with open(txtFileName) as tf:
+            while True:
+                emailAddress = tf.readline()
+                if emailAddress.endswith('\n'):
+                    emailAddress = emailAddress[:-1]
+                check(emailAddress)
+                if not emailAddress:
+                    break
+        print("Valid Emails are: ", validEmails)
+        print("Invalid Emails are: ", invalidEmails[:-1])
+    except FileNotFoundError:
+        print("There is no txt file exist under this name. ")
 
 
 def check(email):
