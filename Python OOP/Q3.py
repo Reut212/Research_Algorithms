@@ -35,10 +35,10 @@ class List(list):
         try:
             if isinstance(items, tuple):  # multidimensional arr
                 item = super().__getitem__(args[0][0])  # get the item in a row
-                print("First row is: ", item)
+                # print("First row is: ", item)
                 for i in args[0][1:]:  # go over all the requested columns
                     item = item[i]
-                    print("Get the requested column: ", item)
+                    # print("Get the requested column: ", item)
                 return item
             else:  # single arr
                 item = super().__getitem__(args[0])
@@ -46,47 +46,47 @@ class List(list):
                     item = item[index]
                 return item
         except IndexError:
-            print("Out of bounds")
+            return "Out of bounds"
 
     def __delitem__(self, *args):
         item_to_del = args[-1]
         if item_to_del is None:
             return None
-        print()
-        print("Requested delitem is: ", item_to_del)
+        # print()
+        # print("Requested delitem is: ", item_to_del)
         try:
             if isinstance(item_to_del, tuple):  # multidimensional arr
                 item = super().__delitem__(args[0][0])  # set the item in a row
-                print("First row is: ", item)
+                # print("First row is: ", item)
                 for delIndex in args[0][1:-1]:  # go over all the requested columns
                     item = item[delIndex]
-                    print("Get the requested column: ", item)
+                    # print("Get the requested column: ", item)
                 return
             else:  # single arr
                 super().__delitem__(args[0])
                 return
         except IndexError:
-            print("Out of bounds")
+            return "Out of bounds"
 
     def __setitem__(self, *args):
         item_to_set = args[-1]
         if item_to_set is None:
             return None
         print()
-        print("Requested set is: ", item_to_set)
+        # print("Requested set is: ", item_to_set)
         try:
             if isinstance(item_to_set, tuple):  # multidimensional arr
                 item = super().__getitem__(args[0][0])  # set the item in a row
-                print("First row is: ", item)
+                # print("First row is: ", item)
                 for index in args[0][1:-1]:  # go over all the requested columns
                     item = item[index]
-                    print("Get the requested column: ", item)
+                    # print("Get the requested column: ", item)
                 return
             else:  # single arr
                 super().__setitem__(args[0], item_to_set)
                 return
         except IndexError:
-            print("Out of bounds")
+            return "Out of bounds"
 
 
 if __name__ == '__main__':
