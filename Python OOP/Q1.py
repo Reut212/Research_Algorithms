@@ -35,7 +35,7 @@ def open_a_text_file(txtFileName):
     # print("looking for " + str(txtFileName) + "...")
     # print()
     # sleep(0.5)
-
+    _checkInput = ""
     try:
         with open(txtFileName) as tf:
             while True:
@@ -60,15 +60,15 @@ def check(email):
     >>> check('abc-d@mail.com')
     Invalid Emails are:  ['abc-@mail.com']
     """
-
     if email == '/0':
         return
-    if re.match(regex, email):
-        validEmails.append(email)
-        # print("Valid Email: " + str(email))
-    else:
-        invalidEmails.append(email)
-        # print("Invalid Email " + str(email))
+    for word in email.split():
+        if re.match(regex, word):
+            validEmails.append(word)
+            # print("Valid Email: " + str(email))
+        else:
+            invalidEmails.append(word)
+            # print("Invalid Email " + str(email))
 
 
 if __name__ == '__main__':
