@@ -22,7 +22,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(sum_numbers(3, 4), "I already told you that the answer is 7!")
         print()
 
-        print(' -------------------------------- Q3 tests -------------------------------- ')
+    print(' -------------------------------- Q3 tests -------------------------------- ')
 
     def test_q3(self):
         list1 = List([
@@ -32,7 +32,7 @@ class MyTestCase(unittest.TestCase):
         ])
         self.assertEqual(list1[0, 1, 3], 66)
         self.assertEqual(list1[0], [[1, 2, 3, 33], [4, 5, 6, 66]])
-        self.assertEqual(list1[4], None)
+        self.assertEqual(list1[4], "Out of bounds")
         list1[2] = 3
         self.assertEqual(list1[0], [[1, 2, 3, 33], [4, 5, 6, 66]])
         self.assertEqual(list1, [[[1, 2, 3, 33], [4, 5, 6, 66]], [[7, 8, 9, 99], [10, 11, 12, 122]], 3])
