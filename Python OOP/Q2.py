@@ -1,20 +1,19 @@
 import doctest
 
-"""
-This is an implementation for a decorator that remember if the last input identical to the previous input.
-
-The program supplies two function, lastcall(func, _saveData={}) - a decorator and rapper_function(*args, **kwargs).
-
-For example, 
->>> power(x=2)
-4
->>> power(2)
-I already told you that the answer is 4!
-"""
-
 
 # defining decorator function
 def lastcall(func, _saveData={}):
+    """
+    This is an implementation for a decorator that remember if the last input identical to the previous input.
+
+    The program supplies two function, lastcall(func, _saveData={}) - a decorator and rapper_function(*args, **kwargs).
+
+    For example,
+    >>> power(x=2)
+    4
+    >>> power(2)
+    'I already told you that the answer is 4!'
+    """
     _saveData[func] = []
 
     def wrapper_function(*args, **kwargs):
