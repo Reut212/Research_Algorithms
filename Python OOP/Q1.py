@@ -1,3 +1,4 @@
+import doctest
 import os
 import re
 from time import sleep
@@ -6,11 +7,7 @@ from time import sleep
 This is an implementation for valid email addresses search.
 
 The program supplies two function, open_a_text_file(txtFileName) and check(email). For example, 
->>> open_a_text_file("txt.txt")
-Valid Emails are:  ['abc-d@mail.com', 'abc.def@mail.com', 'abc@mail.com', 
-'abc_def@mail.com', 'abc.def@mail.cc', 'abc.def@mail-archive.com', 'abc.def@mail.org', 'abc.def@mail.com'] Invalid 
-Emails are:  ['abc-@mail.com', 'abc..def@mail.com', '.abc@mail.com', 'abc#def@mail.com', 'abc.def@mail.c', 
-'abc.def@mail#archive.com', 'abc.def@mail', 'abc.def@mail..com'] 
+
 """
 
 regex = r'^[a-z0-9]+[\._-]?[a-z0-9]+[@][a-z0-9]+[\._-]?[a-z0-9]+[.]\w{2,}$'
@@ -24,6 +21,9 @@ def open_a_text_file(txtFileName):
     regex).
     There is an implementation for inserting a txt file and this function also check if the received file is a txt file.
     I marked it as notes.
+    >>> open_a_text_file("txt.txt")
+    Valid Emails are:  ['abc-d@mail.com', 'abc.def@mail.com', 'abc@mail.com', 'abc_def@mail.com', 'abc.def@mail.cc', 'abc.def@mail-archive.com', 'abc.def@mail.org', 'abc.def@mail.com']
+    Invalid Emails are:  ['aaa', 'abc-@mail.com', 'abc..def@mail.com', '.abc@mail.com', 'abc#def@mail.com', 'abc.def@mail.c', 'abc.def@mail#archive.com', 'abc.def@mail']
     """
 
     # txtFileName = input("Please enter a txt file name: ")
@@ -50,16 +50,8 @@ def open_a_text_file(txtFileName):
     except FileNotFoundError:
         print("There is no txt file exist under this name. ")
 
-
+# This function receive email address and add it to invalid / valid lists
 def check(email):
-    """
-    recieve email address and add it to invalid / valid lists
-    For example,
-    >>> check('abc-d@mail.com')
-    Valid Emails: ['abc-@mail.com']
-    >>> check('abc-d@mail.com')
-    Invalid Emails are:  ['abc-@mail.com']
-    """
     if email == '/0':
         return
     for word in email.split():
@@ -73,4 +65,5 @@ def check(email):
 
 if __name__ == '__main__':
     open_a_text_file("txt.txt")
+    # print(doctest.testmod())
     # open_a_text_file()

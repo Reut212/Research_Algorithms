@@ -2,31 +2,36 @@ import doctest
 
 
 class List(list):
+
     # constructor
     def __init__(self, lst):
+        """
+                This is an implementation for set get and del items
+                For example,
+                list = List([
+                    [[1, 2, 3, 33], [4, 5, 6, 66]],
+                    [[7, 8, 9, 99], [10, 11, 12, 122]],
+                    [[13, 14, 15, 155], [16, 17, 18, 188]],
+                ])
+                >>> print(myList)
+                [[[1, 2, 3, 33], [4, 5, 6, 66]], [[7, 8, 9, 99], [10, 11, 12, 122]], [[13, 14, 15, 155], [16, 17, 18, 188]]]
+                >>> myList[0, 1, 3]
+                66
+                >>> myList[0]
+                [[1, 2, 3, 33], [4, 5, 6, 66]]
+                >>> myList[1, 2]
+                'Out of bounds'
+                >>> print(myList)
+                [[[1, 2, 3, 33], [4, 5, 6, 66]], [[7, 8, 9, 99], [10, 11, 12, 122]], [[13, 14, 15, 155], [16, 17, 18, 188]]]
+                >>> myList[2] = 3
+                <BLANKLINE>
+                >>> print(myList)
+                [[[1, 2, 3, 33], [4, 5, 6, 66]], [[7, 8, 9, 99], [10, 11, 12, 122]], 3]
+                >>> del(myList[2])
+                >>> print(myList)
+                [[[1, 2, 3, 33], [4, 5, 6, 66]], [[7, 8, 9, 99], [10, 11, 12, 122]]]
+                """
         super().__init__(lst)
-
-    """
-    This is an implementation for set get and del items 
-    For example,
-    myList = List([
-        [[1, 2, 3, 33], [4, 5, 6, 66]],
-        [[7, 8, 9, 99], [10, 11, 12, 122]],
-        [[13, 14, 15, 155], [16, 17, 18, 188]],
-    ])
-    >> myList[0, 1, 3]
-    66
-    >> myList[2] = 3
-    [[[1, 2, 3, 33], [4, 5, 6, 66]], [[7, 8, 9, 99], [10, 11, 12, 122]], 3]
-    >>> myList[0]
-    [[1, 2, 3, 33], [4, 5, 6, 66]]
-    >>> myList[1, 2]
-    Traceback (most recent call last):
-    ...
-    Exception: Out Of Range
-    >>> del(myList[1])
-    [[[1, 2, 3, 33], [4, 5, 6, 66]], 3]
-    """
 
     def __getitem__(self, *args):
         items = args[-1]
@@ -87,7 +92,11 @@ class List(list):
                 return
         except IndexError:
             return "Out of bounds"
-
+myList = List([
+        [[1, 2, 3, 33], [4, 5, 6, 66]],
+        [[7, 8, 9, 99], [10, 11, 12, 122]],
+        [[13, 14, 15, 155], [16, 17, 18, 188]],
+    ])
 
 if __name__ == '__main__':
     print(doctest.testmod())
