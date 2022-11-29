@@ -5,10 +5,7 @@ import networkx as nx
 
 def shortest_path(algorithm: Callable, out_type: str, input_data):
     graph = input_data[2]
-    if isinstance(input_data, tuple):
-        src = input_data[0]
-        dst = input_data[1]
-    elif isinstance(input_data, list):
+    if isinstance(input_data, list) or isinstance(input_data, tuple):
         src = int(input_data[0])
         dst = int(input_data[1])
     else:
@@ -121,4 +118,4 @@ if __name__ == '__main__':
     graph1.add_edge(1, 3)
     graph1.add_edge(2, 4)
     graph1.add_edge(1, 2)
-    print(shortest_path(dfs, "path", [0, 2, graph1]))
+    print(shortest_path(dfs, "length", (0, 2, graph1)))
