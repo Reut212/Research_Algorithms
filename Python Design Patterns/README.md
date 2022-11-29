@@ -2,6 +2,8 @@
 
 URL for Q3: https://www.codingame.com/profile/d7941ac0ce0faa44042f012e3b5e4bd91850615
 
-![image](https://github.com/Reut212/Research_Algorithms/blob/master/Python%20OOP/Q4_code_1.png)
+![image](https://github.com/Reut212/Research_Algorithms/blob/master/Python%20Design%20Patterns/Q3_code_1.png)
 
-![image](https://github.com/Reut212/Research_Algorithms/blob/master/Python%20OOP/score.png)
+![image](https://github.com/Reut212/Research_Algorithms/blob/master/Python%20Design%20Patterns/Q3_code_2.png)
+
+![image](https://github.com/Reut212/Research_Algorithms/blob/master/Python%20Design%20Patterns/Score.png)
