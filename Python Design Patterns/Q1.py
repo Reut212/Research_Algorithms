@@ -20,10 +20,10 @@ def bounded_subsets(lst, c):
         yield []
         return
     for i in range(len(lst) + 1):
-        for comb in itertools.combinations(lst, i):
-            if sum(comb) <= c and comb not in subset_list:
-                subset_list.append(comb)
-                yield list(comb)
+        for group in itertools.combinations(lst, i):
+            if sum(group) <= c and group not in subset_list:
+                subset_list.append(group)
+                yield list(group)
             else:
                 break
 
