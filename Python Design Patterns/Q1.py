@@ -1,6 +1,5 @@
 import itertools
 
-
 def bounded_subsets(lst, c):
     subset_list = []
     if c < 0 or len(lst) == 0:
