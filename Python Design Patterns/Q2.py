@@ -1,9 +1,29 @@
+import doctest
 from typing import Callable
 
 import networkx as nx
 
 
 def shortest_path(algorithm: Callable, out_type: str, input_data):
+    """
+        Receive algorithm [BFS/DFS] , shortest path/length and sorce vertex, dest vertex and the graph itself.
+        There is an implementation for a shortest_path.
+        >>> g1 = nx.Graph()
+        >>> g1.add_nodes_from(range(0, 5))
+        >>> g1.add_edge(0, 1)
+        >>> g1.add_edge(0, 3)
+        >>> g1.add_edge(1, 3)
+        >>> g1.add_edge(2, 4)
+        >>> g1.add_edge(1, 2)
+        >>> print(shortest_path(dfs, "length", (0, 2, g1)))
+        The length is: 3
+        >>> print(shortest_path(dfs, "path", (0, 2, g1)))
+        The path is: [0, 1, 2]
+        >>> print(shortest_path(breadth_first_search, "length", (0, 2, g1)))
+        The length is: 3
+        >>> print(shortest_path(breadth_first_search, "path", (0, 2, g1)))
+        The path is: [0, 1, 2]
+    """
     graph = input_data[2]
     if isinstance(input_data, list) or isinstance(input_data, tuple):
         src = int(input_data[0])
@@ -70,7 +90,8 @@ def breadth_first_search(start, end, neighbor_function):
                 queue.append(adjacent)
     # no path available error
     if end not in parent.keys():
-        return print('There is no path between ' + str(start) + ' and ' + str(end))
+        print('There is no path between ' + str(start) + ' and ' + str(end))
+        return []
         # restore the path between start t end
     tmp = end
     path = [end]
@@ -83,15 +104,15 @@ def breadth_first_search(start, end, neighbor_function):
 
 def dfs(start, end, neighbor_function):
     visited = []
-    queue = []
+    stack = []
     parent = {}
 
     visited.append(start)
-    queue.append(start)
+    stack.append(start)
 
-    while queue:
+    while stack:
         # get the first node from the queue
-        node = queue.pop()
+        node = stack.pop()
 
         # going over all adjacent vertices and add each one to his parent, to the queue and mark as visited
         for adjacent in neighbor_function(node):
@@ -101,7 +122,7 @@ def dfs(start, end, neighbor_function):
             if adjacent not in visited:
                 parent[adjacent] = node
                 visited.append(adjacent)
-                queue.append(adjacent)
+                stack.append(adjacent)
         # there is available path
         if end in parent.keys():
             return print_path(parent, start, end)
@@ -111,11 +132,13 @@ def dfs(start, end, neighbor_function):
 
 
 if __name__ == '__main__':
-    graph1 = nx.Graph()
-    graph1.add_nodes_from(range(0, 5))
-    graph1.add_edge(0, 1)
-    graph1.add_edge(0, 3)
-    graph1.add_edge(1, 3)
-    graph1.add_edge(2, 4)
-    graph1.add_edge(1, 2)
-    print(shortest_path(dfs, "length", (0, 2, graph1)))
+    print(doctest.testmod())
+    # graph1 = nx.Graph()
+    # graph1.add_nodes_from(range(0, 5))
+    # graph1.add_edge(0, 1)
+    # graph1.add_edge(0, 3)
+    # graph1.add_edge(1, 3)
+    # graph1.add_edge(2, 4)
+    # graph1.add_edge(1, 2)
+    # print(shortest_path(breadth_first_search, "path", (0, 6, graph1)))
+    # print(shortest_path(dfs, "length", (0, 2, graph1)))
