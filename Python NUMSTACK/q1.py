@@ -7,6 +7,7 @@ def Linear_Equations():
     vars_inp = input("Please insert number of variables: ")
     vars = int(vars_inp)
     print("Please insert " + vars_inp + " variables")
+
     for i in vars_inp:
         save_vars[i] = input("X" + i + " = ")
     A = np.array([[4, 3, 2], [-2, 2, 3], [3, -5, 2]])
